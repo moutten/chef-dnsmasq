@@ -1,0 +1,15 @@
+# Add local-only domains here, queries in these domains are answered
+# from /etc/hosts or DHCP only.
+local=/<%= @domain %>/
+
+# Override the default route supplied by dnsmasq, which assumes the
+# router is the same machine as the one running dnsmasq.
+<%= "dhcp-option=option:router,#{@conf['default_route']}" if @conf['default_route'] %>
+
+# The IP range to allocate in the DHCP server
+dhcp-range=<%= @conf['dhcp_range'] %>
+
+# Static IP allocations
+<% @conf['dhcp_hosts'].to_a.each do |dhcp_host| %>
+dhcp-host=<%= dhcp_host %>
+<% end %>

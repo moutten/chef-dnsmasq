@@ -1,0 +1,4 @@
+search <%= @domain %>
+<% @conf['nameservers'].to_a.each do |dns_server_ip_address| %>
+nameserver <%= dns_server_ip_address %>
+<% end %>
