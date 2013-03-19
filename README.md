@@ -24,18 +24,22 @@ Ubuntu 12.04
   by the dhcp server. This includes the TTL value at the end of the
   range in a standard dnsmasq config.  For example:
 
+```
     # Assigns clients IPs from 192.168.0.50 - 192.168.0.150 with a 12
     # hour lease expiration.
     192.168.0.50,192.168.0.150,12h
+```
 
 * `default['dnsmasq']['dhcp']['dhcp_hosts']` - An array of static hosts
   to be assign specific IP address via DHCP. For example:
 
+```ruby
     # This will assign the IP 192.168.0.20 to the network adapter wit
     # the MAC address `11:22:33:44:55:66`.
     [
       "11:22:33:44:55:66,192.168.0.60"
     ]
+```
 
 * `default['dnsmasq']['dhcp']['default_route']` - This is the default
   route to use for all DHCP clients. This defaults to the IP where the
@@ -55,21 +59,24 @@ Ubuntu 12.04
 * `default['dnsmasq']['dns']['nameservers']` - An array of the IP 
   addresses to forward DNS requests to. For instance, for Google 
   public DNS use:
-    
+
+```ruby
     [
       '8.8.8.8',
       '8.8.4.4'
     ]
+```
 
 * `default['dnsmasq']['dns']['hosts']` - This should be an array of 
   hashes with the domain as the key and the ip as the value. For 
   example:
 
+```ruby
     {
       "test1.com" => "10.0.0.1",
       "test2.com" => "10.0.0.2"
     }
-
+```
 ## Recipes
 
 ### default
