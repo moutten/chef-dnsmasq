@@ -13,3 +13,18 @@ dhcp-range=<%= @conf['dhcp_range'] %>
 <% @conf['dhcp_hosts'].to_a.each do |dhcp_host| %>
 dhcp-host=<%= dhcp_host %>
 <% end %>
+
+<% @conf['tags'].each do |tag| %>
+# Start of tag <%= tag[:tag_name] %>
+  <% tag[:dhcp_hosts].each do |dhcp_host| %>
+<%= "dhcp-host=#{dhcp_host},set:#{tag[:tag_name]}" %>
+  <% end if tag[:dhcp_hosts] %>
+
+  <% tag[:mac_addresses].each do |mac_address| %>
+<%= "dhcp-mac=set:#{tag[:tag_name]},#{mac_address}" %>
+  <% end if tag[:mac_addresses] %>
+
+<%= "dhcp-range=tag:#{tag[:tag_name]},#{tag[:dhcp_range]}" if tag[:dhcp_range] %>
+<%= "dhcp-option=tag:#{tag[:tag_name]},option:router,#{tag[:route]}" if tag[:route] %>
+
+<% end %>

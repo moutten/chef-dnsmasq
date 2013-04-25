@@ -57,6 +57,19 @@ Vagrant::Config.run do |config|
           'dhcp_hosts'    => [
             '11:22:33:44:55:66,33.33.33.101'
           ],
+          'tags' => [
+            {
+              :tag_name => "alternate_internet",
+              :dhcp_hosts => [
+                "11:22:33:44:55:66,33.33.33.151"
+              ],
+              :dhcp_range => "33.33.33.100,33.33.33.150,12h",
+              :mac_addresses => [
+                "00:60:8C:*:*:*"
+              ],
+              :route => "33.33.33.2"
+            }
+          ]
         },
         'domain' => 'testlan',
         'dns' => {
