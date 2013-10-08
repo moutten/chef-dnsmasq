@@ -7,8 +7,6 @@
 
 include_recipe "dnsmasq::dns"
 
-Chef::Log.info node['dnsmasq']['dhcp']['dhcp_range']
-
 template "/etc/dnsmasq.d/dhcp.conf" do
   owner "dnsmasq"
   variables(
