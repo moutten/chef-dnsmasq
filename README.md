@@ -91,6 +91,35 @@ Configures dnsmasq as a DHCP server.
 
 Configures dnsmasq as a DNS cache server.
 
+## Example node configuration
+
+File: `nodes/10.0.0.2.json`
+```json
+{
+	"name": "10.0.0.2",
+	"default": {
+		"dnsmasq": {
+			"domain": "mydomain.local",
+			"dhcp": {
+				"default_route": "10.0.0.1",
+				"dhcp_range": "10.0.2.3,10.100.2.100,12h"
+			},
+			"dns": {
+				"nameservers": [
+					"8.8.8.8",
+					"4.4.4.4"
+				]
+			}
+		}
+	},
+	"run_list": [
+		"recipe[dnsmasq]",
+		"recipe[dnsmasq::dhcp]",
+		"recipe[dnsmasq::dns]"
+	]
+}
+```
+
 ## Author
 
 Author:: Matt Outten (matt@outten.net)
