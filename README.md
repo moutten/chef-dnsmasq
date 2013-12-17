@@ -1,4 +1,4 @@
-# dnsmasq cookbook
+# Dnsmasq cookbook
 ---
 
 ## Requirements
@@ -91,9 +91,14 @@ Configures dnsmasq as a DHCP server.
 
 Configures dnsmasq as a DNS cache server.
 
-## Example node configuration
+## Example Node Attribute Configuration
+
+The following is an example JSON representation of the node attributes
+for using this cookbook with chef-solo in order to setup a Dnsmasq server
+for both DHCP and DNS.
 
 File: `nodes/10.0.0.2.json`
+
 ```json
 {
 	"name": "10.0.0.2",
@@ -113,7 +118,6 @@ File: `nodes/10.0.0.2.json`
 		}
 	},
 	"run_list": [
-		"recipe[dnsmasq]",
 		"recipe[dnsmasq::dhcp]",
 		"recipe[dnsmasq::dns]"
 	]
