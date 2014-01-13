@@ -10,13 +10,11 @@ describe 'dnsmasq::dhcp' do
 
   describe 'dnsmasq dhcp.conf template' do
     it 'creates the /etc/dnsmasq.d/dhcp.conf template' do
-      expect(chef_run).to create_template(dhcp_conf).
-        with(owner: 'dnsmasq')
+      expect(chef_run).to create_template(dhcp_conf).with(owner: 'dnsmasq')
     end
 
     it 'notifies service[dnsmasq] to restart' do
-      expect(chef_run.template(dhcp_conf)).to notify('service[dnsmasq]').
-        to(:restart)
+      expect(chef_run.template(dhcp_conf)).to notify('service[dnsmasq]').to(:restart)
     end
   end
 end
