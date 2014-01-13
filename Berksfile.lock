@@ -1,0 +1,10 @@
+{
+  "sha": "6ef716553a56267bb3eb743ece483db8aa94cecb",
+  "sources": {
+    "dnsmasq": {
+      "locked_version": "0.1.1",
+      "constraint": "= 0.1.1",
+      "path": "/Users/moutten/Code/chef-dnsmasq"
+    }
+  }
+}
