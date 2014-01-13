@@ -1,5 +1,10 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'berkshelf'
-gem "chefspec", '~> 3.0'
-gem 'thor-foodcritic'
+gem "berkshelf"
+gem "chefspec", "~> 3.0"
+gem "guard"
+gem "guard-bundler"
+gem "guard-rspec"
+gem "pry"
+gem "ruby_gntp"
+gem "thor-foodcritic"

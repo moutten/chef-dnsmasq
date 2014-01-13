@@ -81,10 +81,23 @@ GEM
       rake
       treetop (~> 1.4.10)
       yajl-ruby (~> 1.1.0)
+    formatador (0.2.4)
     gherkin (2.11.8)
       multi_json (~> 1.3)
     gssapi (1.0.3)
       ffi (>= 1.0.1)
+    guard (1.8.3)
+      formatador (>= 0.2.4)
+      listen (~> 1.3)
+      lumberjack (>= 1.0.2)
+      pry (>= 0.9.10)
+      thor (>= 0.14.6)
+    guard-bundler (1.0.0)
+      bundler (~> 1.0)
+      guard (~> 1.1)
+    guard-rspec (3.1.0)
+      guard (>= 1.8)
+      rspec (~> 2.13)
     gyoku (1.1.1)
       builder (>= 2.1.2)
     hashie (2.0.5)
@@ -96,10 +109,15 @@ GEM
     i18n (0.6.9)
     ipaddress (0.8.0)
     json (1.7.7)
+    listen (1.3.1)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      rb-kqueue (>= 0.2)
     little-plugger (1.1.3)
     logging (1.8.1)
       little-plugger (>= 1.1.3)
       multi_json (>= 1.3.6)
+    lumberjack (1.0.4)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitar (0.5.4)
@@ -142,6 +160,11 @@ GEM
       rack (~> 1.2)
     rack (1.5.2)
     rake (10.1.1)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.3)
+      ffi (>= 0.5.0)
+    rb-kqueue (0.2.0)
+      ffi (>= 0.5.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     retryable (1.3.4)
@@ -167,6 +190,7 @@ GEM
     rspec-expectations (2.14.4)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.4)
+    ruby_gntp (0.3.4)
     rubyntlm (0.1.1)
     safe_yaml (0.9.7)
     savon (0.9.5)
@@ -219,4 +243,9 @@ PLATFORMS
 DEPENDENCIES
   berkshelf
   chefspec (~> 3.0)
+  guard
+  guard-bundler
+  guard-rspec
+  pry
+  ruby_gntp
   thor-foodcritic
