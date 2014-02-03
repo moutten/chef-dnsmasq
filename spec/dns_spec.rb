@@ -46,5 +46,11 @@ describe 'dnsmasq::dns' do
     it 'notifies service[dnsmasq] to restart' do
       expect(chef_run_converge.template(hosts_conf)).to notify('service[dnsmasq]').to(:restart)
     end
+
+    it 'creates the hosts file with many to many relationships between hosts and IPs' do
+      chef_run.node.set['dnsmasq']['dns']['hosts'] = {"test.com www.test.com" => "10.0.0.2 10.0.0.3"}
+
+      expect(chef_run_converge).to render_file(hosts_conf).with_content("10.0.0.2 test.com www.test.com\n10.0.0.3 test.com www.test.com")
+    end
   end
 end
