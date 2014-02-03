@@ -1,3 +1,6 @@
-<% @hosts.keys.sort.each do |host_name| %>
-<%= "#{@hosts[host_name]} #{host_name}" %>
-<% end %>
+
+<% @hosts.keys.sort.each do |host_name|
+     @hosts[host_name].split(' ').each do |ip| -%>
+<%=    "#{ip} #{host_name}" %>
+<%   end
+   end -%>
